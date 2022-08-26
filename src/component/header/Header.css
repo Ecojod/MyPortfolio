@@ -1,0 +1,126 @@
+header{
+    height: 130vh;
+    padding-top: 3rem;
+    overflow: hidden;
+}
+
+.header-container{
+    text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+.header-head{
+    color: var(--color-black);
+    width: fit-content;
+    margin: auto;
+}
+
+.loader-body{
+    bottom: 0rem;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90%;
+    height: 3px;
+    overflow: hidden;
+    border-radius: 30px;
+    background-color: #fff;
+}
+.loader-width{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    transform: scale(0);
+    transform-origin: 0 0;
+    animation: progress 40s
+        cubic-bezier(0.01, 1.06, 0.71, 1)
+        forwards;
+    transition: all .3s;
+}
+.loader{
+    background: repeating-linear-gradient(
+        to right,
+        #fe1a1a 0%, #ff5959 10%,
+        #807979 20%, #926e64 30%,
+        #ffb6e6 40%, #a3deff 50%,
+        #ffffff 60%, #79ca53 70%,
+        #ffe462 80%, #ce1919 90%,
+        #f78080 100%
+    );
+    background-size: 10%;
+    background-repeat: repeat;
+    height: 100%;
+    width: 6000px;
+    transform: translate(-600px);
+    animation: move 3s linear infinite;
+}
+@keyframes move{
+    0% {transform: translate(-600px);}
+    100% {transform: translate(0);}
+}
+@keyframes progress{
+    0% {transform: scaleX(0.001);}
+    100% {transform: scaleX(0.97);}
+}
+
+.cta{
+    display: flex;
+    margin-top: 2.5rem;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+.header-socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: absolute;
+    left: 0;
+    bottom: 3rem;
+}
+
+.header-socials::after{
+    content: '';
+    width: 1px;
+    height: 2rem;
+    background: var(--color-primary);
+}
+
+.me{
+    background: linear-gradient(var(--color-primary), transparent);
+    width: 22rem;
+    height: 30rem;
+    position: absolute;
+    left: calc(50% - 11rem);
+    margin-top: 4rem;
+    border-radius: 12rem 12rem 0 0 ;
+    padding: 5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.me img{
+    border-radius: 12rem 12rem 0 0 ;
+}
+
+.scroll-down{
+    position: absolute;
+    right: -2.3rem;
+    bottom: 5rem;
+    transform: rotate(90deg);
+    font-weight: 300;
+    font-size: .9rem;
+}
+
+@media(max-width:1024px){
+    header{
+        height: 68vh;
+    }
+}
+@media(max-width:600px){
+    header{
+        height: 100vh;
+    }
+    .header-socials, .scroll-down{
+        display: none;
+    }
+}
